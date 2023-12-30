@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "task.apps.TaskConfig",
+    "category.apps.CategoryConfig"
+
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'task_management_system.urls'
+
+
+print("BASE_DIR >> ",BASE_DIR)
 
 TEMPLATES = [
     {
