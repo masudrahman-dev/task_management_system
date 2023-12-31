@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "task.apps.TaskConfig",
-    "category.apps.CategoryConfig"
+    "category.apps.CategoryConfig",
+    
 
 ]
 

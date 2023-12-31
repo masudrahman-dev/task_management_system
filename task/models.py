@@ -1,5 +1,7 @@
 from django.db import models
 from category.models import TaskCategory
+
+
 class TaskModel(models.Model):
     taskTitle = models.CharField(max_length=255)
     taskDescription = models.TextField()
