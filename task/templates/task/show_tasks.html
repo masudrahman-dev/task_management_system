@@ -2,29 +2,13 @@
 {% extends 'base.html' %} {% block content %}
 
 <section class="container">
-  <h2 class="align-center my-5">All Tasks</h2>
-  <div class="d-flex gap-3">
-    {% comment %} {# {% for task in tasks %}#} {#
-    <div class="card">
-      #} {#
-      <div class="card-body">
-        #} {#
-        <h5 class="card-title">{{ task.taskTitle }}</h5>
-        #} {#
-        <p class="card-text">{{ task.taskDescription }}</p>
-        #} {# {% if task.is_completed %}#} {#
-        <p class="text-success">Completed</p>
-        #} {# {% else %}#} {#
-        <a href="{% url 'edit_task' task.id %}" class="btn btn-primary">Edit</a
-        >#} {#
-        <a href="{% url 'delete_task' task.id %}" class="btn btn-danger"
-          >Delete</a
-        >#} {# {% endif %}#} {#
-      </div>
-      #} {#
-    </div>
-    #} {# {% endfor %}#} {% endcomment %}
-    <div class="card">
+  <h2 class="my-5 text-center">All Tasks</h2>
+  <div
+    class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center gap-3"
+  >
+    {% for task in tasks %}
+
+    <div class="card col">
       <div
         class="bg-image hover-overlay"
         data-mdb-ripple-init
@@ -42,16 +26,15 @@
         </a>
       </div>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
+        <h5 class="card-title">{{ task.taskTitle }}</h5>
+        <p class="card-text">{{ task.taskDescription }}</p>
         <a class="btn btn-primary" data-mdb-ripple-init>Edit</a>
         <a class="btn btn-danger" data-mdb-ripple-init>Delete</a>
         <a class="btn btn-success" data-mdb-ripple-init>Completed</a>
       </div>
     </div>
+
+    {% endfor %}
   </div>
 </section>
 

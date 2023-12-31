@@ -1,26 +1,20 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from .models import TaskModel
 from .forms import TaskForm
 
-
 def show_tasks(request):
-    # tasks = TaskModel.objects.all()
-    return render(request, 'task/show_tasks.html',)
+    tasks = TaskModel.objects.all()
+    return render(request, 'task/show_tasks.html', {'tasks': tasks})
 
 def add_task(request):
-
     if request.method == 'POST':
-        pass
         form = TaskForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            message = form.cleaned_data['message']
-            age = form.cleaned_data['age']
-            print(age)
-
+            form.save()
+            
+            
+            
+            return redirect('show_tasks')
     else:
         form = TaskForm()
-    return render(request, 'task/add_task.html',{'form':form})
-
-
+    return render(request, 'task/add_task.html', {'form': form})

@@ -1,12 +1,6 @@
-from django.shortcuts import render
-
-from category.forms import TaskCategoryForm
 from django.shortcuts import render, redirect
-
-# Create your views here.
-
-
-
+from .models import TaskCategory
+from .forms import TaskCategoryForm
 
 def add_category(request):
     if request.method == 'POST':
@@ -16,4 +10,4 @@ def add_category(request):
             return redirect('show_tasks')
     else:
         form = TaskCategoryForm()
-    return  render(request,'category/add_category.html')
+    return render(request, 'category/add_category.html', {'form': form})
